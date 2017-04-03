@@ -1,0 +1,41 @@
+mymodule.mypage:
+  path: 'mypage'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::customPage'
+    _title: 'My custom page'
+  requirements:
+    _permission: 'mymodule pages'
+  permission_callbacks:
+    - \Drupal\mymodule\DynamicPermissions::permissions
+
+
+mymodule.cats:
+  path: 'cats/{name}'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::cats'
+    _title: 'My custom page'
+  requirements:
+    _permission: 'access content'
+
+
+mymodule.demo:
+  path: 'demo/{name}'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::demo'
+    _title: 'My custom page'
+  requirements:
+    _permission: 'access content'
+    name: '[a-zA-z]+'
+
+
+route_callbacks:
+  - '\Drupal\mymodule\Routing\CustomRoutes::routes'
+
+
+mymodule.hello:
+  path: 'hello'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::world'
+    _title: 'HELLO Mouna'
+  requirements:
+    _permission: 'access content'

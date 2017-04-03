@@ -1,0 +1,4 @@
+mymodule pages:
+  title: 'view mymodule pages'
+  description: 'Allows users to view pages provide by My Module !'
+  restrict access: TRUE
