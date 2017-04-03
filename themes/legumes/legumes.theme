@@ -1,0 +1,24 @@
+<?php
+use \Drupal\taxonomy\Entity\Term;
+/**
+ * legumes_preprocess_node
+ * @param type $variables
+ */
+function legumes_preprocess_node(&$variables) {
+
+  if (($node = \Drupal::routeMatch()->getParameter('node')) && $node instanceof \Drupal\node\NodeInterface) {
+
+    $variables['titre'] = $node->field_titre->value;
+    $variables['prix'] = $node->field_prix->value;
+    $variables['no_content_text'] = t('You have not created any content types yet.');
+    $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    $term = Term::load($tid);
+    if (!empty($term)) {
+      $vid = $term->vid->getValue();
+      $variables['Taxonomie'] = $vid;
+    }
+
+    $variables['base_path'] = base_path();
+
+  }
+}

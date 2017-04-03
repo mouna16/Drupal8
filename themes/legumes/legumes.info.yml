@@ -1,0 +1,17 @@
+name: legumes
+type: theme
+Description: Legumes Theme
+version: 1.0
+core: 8.x
+engine: twig
+
+regions:
+      headline: headline
+      header: Header
+      content: Content
+      sidebar: Sidebar
+      footer: Footer
+
+libraries:
+  - legumes/globalstyling
+  
